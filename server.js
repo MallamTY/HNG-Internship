@@ -2,8 +2,7 @@ const express = require('express');
 const route = require('./route/route')
 const helmet = require('helmet');
 const compression = require('compression');
-const cors = require('cors');
-const router = express.Router();
+const cors = require('cors');const router = express.Router();
 const app = express();
 const {PORT} = require('./configVariable');
 

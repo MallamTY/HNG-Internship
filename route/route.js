@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 router.get(['/', '/home'], (req, res) => {
+    res.set('Access-Control-Allow-Origin', '*');
     res.status(200).json({
         slackUsername: `MallamTY`,
         backend: `true`,
