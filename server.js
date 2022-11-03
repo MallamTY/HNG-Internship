@@ -1,5 +1,5 @@
 const express = require('express');
-const route = require('./route/route')
+const route = require('./route/route');
 const helmet = require('helmet');
 const compression = require('compression');
 const cors = require('cors');const router = express.Router();
@@ -7,6 +7,7 @@ const app = express();
 const {PORT} = require('./configVariable');
 
 
+app.use(express.json())
 app.use(helmet());
 app.use(compression());
 app.use(cors());
