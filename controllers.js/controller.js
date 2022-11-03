@@ -29,26 +29,24 @@ const postEndpoint = (req, res) => {
         if(operation_type === Enum.addition){
             res.status(200).json({
                 slackUsername: "MallamTY",
-                operation_type: Enum.addition,
-                result: x + y
+                result: x + y,
+                operation_type: Enum.addition
+                
             })
         }
         else if(operation_type === Enum.subtraction){
             res.status(200).json({
                 slackUsername: "MallamTY",
-                operation_type: Enum.subtraction,
-                result: x - y
+                result: x - y,
+                operation_type: Enum.subtraction
             })
         }
         else if(operation_type === Enum.multiplication){
             res.status(200).json({
                 slackUsername: "MallamTY",
-                operation_type: Enum.multiplication,
-                result: x * y
+                result: x * y,
+                operation_type: Enum.multiplication
             })
-        }
-        else{
-            return res.status(400).json(`${operation_type} is not a recognised operation`)
         }
     }
 
@@ -69,8 +67,8 @@ const postEndpoint = (req, res) => {
         })
         res.status(200).json({
             slackUsername: "MallamTY",
-            operation_type: Enum.addition,
-            result: total
+            result: total,
+            operation_type: Enum.addition
         }) 
     }
         if(lowOperationSplit.includes('subtract')|| lowOperationSplit.includes('minus') || 
@@ -90,8 +88,8 @@ const postEndpoint = (req, res) => {
         })
         res.status(200).json({
             slackUsername: "MallamTY",
-            operation_type: Enum.subtraction,
-            result: total
+            result: total,
+            operation_type: Enum.subtraction
         })  
         }
             }
@@ -113,8 +111,8 @@ const postEndpoint = (req, res) => {
         })
     res.status(200).json({
         slackUsername: "MallamTY",
-        operation_type: Enum.multiplication,
-        result: total
+        result: total,
+        operation_type: Enum.multiplication
     })  
 }
 }
