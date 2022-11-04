@@ -12,7 +12,8 @@ const getEndpoint = (req, res) => {
 
 const postEndpoint = (req, res) => {
     res.set('Access-Control-Allow-Origin', '*')
-    const {operation_type, x, y} = req.body;
+    var {operation_type, x, y} = req.body;
+    operation_type = operation_type.toLowerCase()
     var operationSplit = operation_type.split(' ');
     const lowOperationSplit = []
     operationSplit.forEach(element => {
@@ -53,7 +54,8 @@ const postEndpoint = (req, res) => {
     else if(operationSplit.length > 1){
         var total = 0;
         if(lowOperationSplit.includes('addition') || lowOperationSplit.includes('add') || 
-        lowOperationSplit.includes('added') || lowOperationSplit.includes('plus')){
+        lowOperationSplit.includes('added') || lowOperationSplit.includes('plus') || lowOperationSplit.includes('sum')
+         || lowOperationSplit.includes('togetherness') || lowOperationSplit.includes('+')){
             operationSplit.forEach(element => {
                 if (element.toLowerCase() === 'x') {
                     total += x;
@@ -72,9 +74,9 @@ const postEndpoint = (req, res) => {
         }) 
     }
         if(lowOperationSplit.includes('subtract')|| lowOperationSplit.includes('minus') || 
-        lowOperationSplit.includes('subtration') || lowOperationSplit.includes('less')){
+        lowOperationSplit.includes('subtration') || lowOperationSplit.includes('less') || lowOperationSplit.includes('deduct') || lowOperationSplit.includes('-')){
             var total = 0;
-            operationSplit.forEach(element => {
+                operationSplit.forEach(element => {
                 if (element.toLowerCase() === 'x') {
                     total = x - total;
                 }
@@ -92,10 +94,10 @@ const postEndpoint = (req, res) => {
             operation_type: Enum.subtraction
         })  
         }
-            }
+    }
         
         if(lowOperationSplit.includes('multiply') || operationSplit.includes('multiplied') || 
-        operationSplit.includes('product') || operationSplit.includes('of') || operationSplit.includes('mulplication')){
+        operationSplit.includes('product')|| operationSplit.includes('mulplication') || operationSplit.includes('*')){
             total = 1
             operationSplit.forEach(element => {
 
@@ -114,7 +116,7 @@ const postEndpoint = (req, res) => {
         result: total,
         operation_type: Enum.multiplication
     })  
-}
+    }
 }
 
 module.exports = {
