@@ -48,7 +48,7 @@ const postEndpoint = (req, res) => {
         }
     }
 
-    else if(operationSplit.length > 1){                       ['could', 'you', 'please', 'add', 5, 'and', 5]
+    else if(operationSplit.length > 1){                      
         var total = 0;
         if(operationSplit.includes('addition') || operationSplit.includes('add') || 
         operationSplit.includes('added') || operationSplit.includes('plus') || operationSplit.includes('sum')
