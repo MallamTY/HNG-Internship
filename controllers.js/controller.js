@@ -14,18 +14,15 @@ const postEndpoint = (req, res) => {
     res.set('Access-Control-Allow-Origin', '*')
     var {operation_type, x, y} = req.body;
     operation_type = operation_type.toLowerCase()
-    var operationSplit = operation_type.split(' ');
-    const lowOperationSplit = []
-    operationSplit.forEach(element => {
-        lowOperationSplit.push(element.toLowerCase())
-    });
+    var operationSplit = operation_type.split(' '); 
+    
     var total = 0;
     const Enum = {
         addition: 'addition',
         subtraction: 'subtraction',
         multiplication: 'multiplication'
     }
-
+                                            
     if (operationSplit.length === 1) {
         if(operation_type === Enum.addition){
             res.status(200).json({
@@ -51,16 +48,16 @@ const postEndpoint = (req, res) => {
         }
     }
 
-    else if(operationSplit.length > 1){
+    else if(operationSplit.length > 1){                       ['could', 'you', 'please', 'add', 5, 'and', 5]
         var total = 0;
-        if(lowOperationSplit.includes('addition') || lowOperationSplit.includes('add') || 
-        lowOperationSplit.includes('added') || lowOperationSplit.includes('plus') || lowOperationSplit.includes('sum')
-         || lowOperationSplit.includes('togetherness') || lowOperationSplit.includes('+')){
+        if(operationSplit.includes('addition') || operationSplit.includes('add') || 
+        operationSplit.includes('added') || operationSplit.includes('plus') || operationSplit.includes('sum')
+         || operationSplit.includes('togetherness') || operationSplit.includes('+')){
             operationSplit.forEach(element => {
-                if (element.toLowerCase() === 'x') {
+                if (element === 'x') {
                     total += x;
                 }
-                if (element.toLowerCase() == 'y') {
+                if (element === 'y') {
                     total += y;
                 }
                 if (Number.isInteger(parseInt(element))) {
@@ -73,14 +70,14 @@ const postEndpoint = (req, res) => {
             operation_type: Enum.addition
         }) 
     }
-        if(lowOperationSplit.includes('subtract')|| lowOperationSplit.includes('minus') || 
-        lowOperationSplit.includes('subtration') || lowOperationSplit.includes('less') || lowOperationSplit.includes('deduct') || lowOperationSplit.includes('-')){
+        if(operationSplit.includes('subtract')|| operationSplit.includes('minus') || 
+        operationSplit.includes('subtration') || operationSplit.includes('less') || operationSplit.includes('deduct') || operationSplit.includes('-')){
             var total = 0;
                 operationSplit.forEach(element => {
-                if (element.toLowerCase() === 'x') {
+                if (element === 'x') {
                     total = x - total;
                 }
-                if (element.toLowerCase() == 'y') {
+                if (element === 'y') {
                     total = y - total;
                 }
                 if (Number.isInteger(parseInt(element))) {
@@ -96,15 +93,15 @@ const postEndpoint = (req, res) => {
         }
     }
         
-        if(lowOperationSplit.includes('multiply') || operationSplit.includes('multiplied') || 
+        if(operationSplit.includes('multiply') || operationSplit.includes('multiplied') || 
         operationSplit.includes('product')|| operationSplit.includes('mulplication') || operationSplit.includes('*')){
             total = 1
             operationSplit.forEach(element => {
 
-                if (element.toLowerCase() === 'x') {
+                if (element === 'x') {
                     total *= x;
                 }
-                if (element.toLowerCase() == 'y') {
+                if (element === 'y') {
                     total *= y;
                 }
                 if (Number.isInteger(parseInt(element))) {
